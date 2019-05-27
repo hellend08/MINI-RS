@@ -4,11 +4,12 @@ export default () => {
 const body = document.createElement('div');
 const templateOne = `
   <header>
-    <img class="" src="" alt="">
+    <img class="logo" src="./images/govegan.png" alt="vegan-logo">
   </header>
-  <section class="" id="">
+  <section class="login-container" id="">
     <h1>VeggieHappy</h1>
-    <h3 class="">Bienvenido a VeggieHappy, la única red que te compartirá deliciosas recetas vegnas.</h3>
+    <h3 class="">¡Bienvenido a VeggieHappy! </h3>
+    <p>La única red que te compartirá una idea del veganismo que no conocías.</p>
 <!-- <p class="error-message" id="error-message"></p> -->
     <input class="input" id="email" type="email" placeholder="   &#9993    Email">
     <input class="input" id="password" type="password" placeholder="   &#128274     Password">
