@@ -1,8 +1,9 @@
-import {logInFirebase} from '../firebase/controller-firebase.js';
+// import { logInFirebase } from '../firebase/controller-firebase.js';
+import {viewHome} from './homeToDo.js'
 
 export default () => {
-const body = document.createElement('div');
-const templateOne = `
+  const body = document.createElement('div');
+  const template = `
   <header>
     <img class="logo" src="./images/govegan.png" alt="vegan-logo">
   </header>
@@ -15,17 +16,18 @@ const templateOne = `
     <input class="input" id="password" type="password" placeholder="   &#128274     Password">
     <button class="" id="login"> Log In </button>
     <h3 class="text">¿No tienes una cuenta?<a href=""> Regístrate.</a></h3>
+    <div id="get-home"></div>
   </section>`
 
-  body.innerHTML = templateOne;
-
-const buttonLogin = body.querySelector('#login');
-const emailValue = body.querySelector('#email').value;
-const passwordValue = body.querySelector('#password').value;
+  body.innerHTML = template;
+  const buttonLogin = body.querySelector('#login');
+  // const emailValue = body.querySelector('#email').value;
+  // const passwordValue = body.querySelector('#password').value;
 
   buttonLogin.addEventListener('click', () => {
-    logInFirebase(emailValue, passwordValue);
-    console.log('Hola');
+    // logInFirebase(emailValue, passwordValue);
+    body.innerHTML = '';
+    body.appendChild(viewHome());
   });
   return body;
 };
