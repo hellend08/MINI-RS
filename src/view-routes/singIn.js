@@ -1,4 +1,4 @@
-// import { logInFirebase } from '../firebase/controller-firebase.js';
+import { logInFirebase } from '../firebase/controller-firebase.js';
 import {viewHome} from './homeToDo.js'
 
 export default () => {
@@ -21,11 +21,11 @@ export default () => {
 
   body.innerHTML = template;
   const buttonLogin = body.querySelector('#login');
-  // const emailValue = body.querySelector('#email').value;
-  // const passwordValue = body.querySelector('#password').value;
+  const emailValue = body.querySelector('#email').value;
+  const passwordValue = body.querySelector('#password').value;
 
   buttonLogin.addEventListener('click', () => {
-    // logInFirebase(emailValue, passwordValue);
+    logInFirebase(emailValue, passwordValue);
     body.innerHTML = '';
     body.appendChild(viewHome());
   });
