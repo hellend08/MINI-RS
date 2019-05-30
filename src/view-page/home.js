@@ -1,10 +1,11 @@
-
 export const viewHome = () => {
     const sectionHome = document.createElement('section');
 
     const templateHome = `
     <input type="text" id="notes" placeholder="¿Qué estas pensando?">
     <button id="share-post">Share Note</button>
+    <ul>
+    <input type="checkbox"><p>Note</p>
     `
 
     sectionHome.innerHTML = templateHome;

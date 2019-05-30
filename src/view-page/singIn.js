@@ -1,0 +1,42 @@
+import {logInFirebase} from '../firebase/controller-firebase.js';
+// import {viewHome} from './home.js'
+import {newUser} from './registry.js';
+
+export default () => {
+  const body = document.createElement('div');
+  const template = `
+  <div class="login-container">
+  <header>
+    <img class="logo" src="./images/govegan.png" alt="vegan-logo">
+  </header>
+  <section class="section-login" id="">
+    <h1>VeggieHappy</h1>
+    <!--  <h3 class="">¡Bienvenido a VeggieHappy! </h3> -->
+    <p>La única red que te compartirá una idea del veganismo que no conocías.</p>
+<!-- <p class="error-message" id="error-message"></p> -->
+    <input class="input" id="email-login" type="email" placeholder="   &#9993    Email">
+    <input class="input" id="password-login" type="password" placeholder="   &#128274     Password">
+    <a href="#/login" ><button class="button" id="login"> Log In </button></a>
+    <h3 class="text">¿No tienes una cuenta?<a href="#/registry" id="registry"> Regístrate.</a></h3>
+    <div id="get-home"></div>
+  </section>
+  </div>`
+
+  body.innerHTML = template;
+  const buttonLogin = body.querySelector('#login');
+  const buttonRegistry = body.querySelector('#registry');
+
+  buttonLogin.addEventListener('click', () => {
+    const emailValue = body.querySelector('#email-login').value;
+  const passwordValue = body.querySelector('#password-login').value;
+    logInFirebase(emailValue, passwordValue);
+    // body.innerHTML = '';
+    // body.appendChild(viewHome());
+  });
+
+  buttonRegistry.addEventListener('click', () => {
+    body.innerHTML = '';
+    body.appendChild(newUser());
+  });
+  return body;
+};
