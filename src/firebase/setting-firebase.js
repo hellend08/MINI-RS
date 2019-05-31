@@ -1,3 +1,4 @@
+import {sendRoute} from './routes.js';
 export const settingFirebase = () => {
  let firebaseConfig = {
     apiKey: "AIzaSyBqXmEOgcUZ6bSQYdaQ6Iz5DnW-OsSHQo0",
@@ -10,5 +11,6 @@ export const settingFirebase = () => {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  // Initialize rutas
+  sendRoute();
 }
-// settingFirebase;
