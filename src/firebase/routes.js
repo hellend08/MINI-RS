@@ -5,6 +5,9 @@ export const chanceRoutes = (route) => {
     firtsPage.innerHTML = '';
     switch (route) {
         case '#/login': firtsPage.appendChild(componentsObject.singIn())
+        break;
+        default:
+            firtsPage.appendChild(componentsObject.singIn());
 
             break;
     }

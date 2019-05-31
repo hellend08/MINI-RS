@@ -13,9 +13,8 @@ export const singIn = () => {
     <h1>VeggieHappy</h1>
     <!--  <h3 class="">¡Bienvenido a VeggieHappy! </h3> -->
     <p>La única red que te compartirá una idea del veganismo que no conocías.</p>
-<!-- <p class="error-message" id="error-message"></p> -->
-    <input class="input" id="email-login" type="email" placeholder="   &#9993    Email">
-    <input class="input" id="password-login" type="password" placeholder="   &#128274     Password">
+    <input class="input" id="email" type="email" placeholder="   &#9993    Email">
+    <input class="input" id="password" type="password" placeholder="   &#128274     Password">
     <a href="#/login" ><button class="button" id="login"> Log In </button></a>
     <div id="get-home"></div>
   </section>
