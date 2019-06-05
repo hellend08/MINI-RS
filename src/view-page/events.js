@@ -8,7 +8,7 @@ export const eventLogin = () => {
 }
 
 export const eventPost = () => {
-    const noteValue = document.querySelector('#notes');
-    postNotes(noteValue);
+    const notes = document.querySelector('#notes').value;
+    postNotes(notes);
 
 }

@@ -6,15 +6,26 @@ export const logInFirebase = (emailValue, passwordValue) => {
     .catch(() => alert("Error de login"));
 }
 
-export const postNotes = (noteValue) => {
- return firebase.firestore().collection("post").add({
-    name: 'nana',
-    note: noteValue
-})
-.then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch(function(error) {
-    console.error("Error adding document: ", error);
-});
+export const postNotes = (notes) => {
+  return firebase.firestore().collection("post").add({
+    post: notes
+  })
+    .then(() => {
+      // console.log("Document written with ID: ");
+      alert("Nota publicada");
+      document.querySelector('#notes').value = '';
+    })
+    .catch(() => {
+      alert("Nota no publicada");
+    });
 }
+
+export const getPost = () => {
+return firebase.firestore().collection("post").get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data().post}`);
+  });
+});
+
+}
+
