@@ -1,4 +1,4 @@
-import { logInFirebase, postNotes, deletePost, editPost} from '../firebase/controller-firebase.js';
+import { logInFirebase, postNotes, deletePost, editPost } from '../firebase/controller-firebase.js';
 
 export const viewPost = (post) => {
     const listNotes = document.createElement('li');
@@ -27,10 +27,14 @@ export const eventLogin = () => {
     const emailValue = document.querySelector('#email').value;
     const passwordValue = document.querySelector('#password').value;
     logInFirebase(emailValue, passwordValue)
+        .then(() => {
+            window.location.hash = '#/home';
+        })
+        .catch(() => alert("Error de login"));
 }
 
 export const eventPost = () => {
     const notes = document.querySelector('#notes').value;
     postNotes(notes);
-    
+
 }

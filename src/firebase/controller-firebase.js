@@ -1,10 +1,6 @@
-export const logInFirebase = (emailValue, passwordValue) => {
-  firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
-    .then(() => {
-      window.location.hash = '#/home'
-    })
-    .catch(() => alert("Error de login"));
-}
+export const logInFirebase = (emailValue, passwordValue) =>
+  firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
+
 
 export const postNotes = (notes) => {
   return firebase.firestore().collection("post").add({
@@ -42,11 +38,11 @@ export const editPost = (id, notes) => {
   return firebase.firestore().collection("post").doc(id).update({
     post: notes
   })
-  .then(function() {
-    console.log("Texto editado!");
-  })
-  .catch(function(error) {
-    console.error("Error writing document: ", error);
-  });
+    .then(function () {
+      console.log("Texto editado!");
+    })
+    .catch(function (error) {
+      console.error("Error writing document: ", error);
+    });
 
 }
