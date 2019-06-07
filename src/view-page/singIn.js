@@ -1,5 +1,3 @@
-// import {viewHome} from './home.js'
-// import {newUser} from './registry.js';
 import {eventLogin} from './events.js'
 
 export const singIn = () => {

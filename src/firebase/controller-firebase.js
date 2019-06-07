@@ -11,8 +11,6 @@ export const postNotes = (notes) => {
     post: notes
   })
     .then(() => {
-      // console.log("Document written with ID: ");
-      alert("Nota publicada");
       document.querySelector('#notes').value = '';
     })
     .catch(() => {
@@ -20,12 +18,35 @@ export const postNotes = (notes) => {
     });
 }
 
-export const getPost = () => {
-return firebase.firestore().collection("post").get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data().post}`);
+export const getPost = (funcionCallback) => {
+  return firebase.firestore().collection("post").onSnapshot((querySnapshot) => {
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push({
+        id: doc.id,
+        post: doc.data().post
+      });
+    });
+    funcionCallback(data);
   });
-});
-
 }
 
+export const deletePost = (idPost) => {
+  return firebase.firestore().collection("post").doc(idPost).delete().then(function () {
+  }).catch((error) => {
+    console.error("Error removing document: ", error);
+  });
+}
+
+export const editPost = (id, notes) => {
+  return firebase.firestore().collection("post").doc(id).update({
+    post: notes
+  })
+  .then(function() {
+    console.log("Texto editado!");
+  })
+  .catch(function(error) {
+    console.error("Error writing document: ", error);
+  });
+
+}

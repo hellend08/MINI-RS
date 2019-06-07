@@ -1,4 +1,5 @@
-import { componentsObject } from '../view-page/components.js'
+import { componentsObject } from '../view-page/components.js';
+import { getPost } from './controller-firebase.js'
 
 export const chanceRoutes = (route) => {
     const firtsPage = document.getElementById("log-in");
@@ -6,7 +7,13 @@ export const chanceRoutes = (route) => {
     switch (route) {
         case '#/login': firtsPage.appendChild(componentsObject.singIn())
         break;
-        case '#/home' : firtsPage.appendChild(componentsObject.home())
+        case '#/home' : {
+            const viewfuncionCallback = (data) => {
+                firtsPage.innerHTML = '';
+                firtsPage.appendChild(componentsObject.home(data));
+            }
+            getPost(viewfuncionCallback);
+        }
         break;
         default:
             firtsPage.appendChild(componentsObject.singIn());
