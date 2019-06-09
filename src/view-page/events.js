@@ -1,12 +1,12 @@
 import { logInFirebase, postNotes, deletePost, editPost } from '../firebase/controller-firebase.js';
 
 export const viewPost = (post) => {
+
     const listNotes = document.createElement('li');
 
     listNotes.innerHTML = `
     <input type="checkbox" id="tachar-post-${post.id}" >
-    <label for="tachar-post-${post.id}"></label>
-    <span class="text" >${post.post}</span>
+    <span class="text" id="post-${post.id}" >${post.post}</span>
     <button class="delete" id="delete-post-${post.id}"><img class="icon" src="./images/delete.png" alt="button-delete"></button>
     `
 
@@ -17,9 +17,16 @@ export const viewPost = (post) => {
 
     const editCheckbox = listNotes.querySelector(`#tachar-post-${post.id}`);
     editCheckbox.addEventListener('click', () => {
-        editPost(post.id, post.post)
+        if (editCheckbox.checked === true) {
+            const postTachado = (post.post).strike();
+            document.querySelector(`#post-${post.id}`).innerHTML = postTachado
+            editPost(post.id, post.post);
+        } else {
+            const postPost = (post.post);
+            document.querySelector(`#post-${post.id}`).innerHTML = postPost;
+            editPost(post.id, post.post);
+        }
     })
-
     return listNotes;
 }
 
