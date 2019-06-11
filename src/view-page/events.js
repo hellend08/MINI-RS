@@ -5,8 +5,8 @@ export const viewPost = (post) => {
     const listNotes = document.createElement('li');
 
     listNotes.innerHTML = `
-    <input type="checkbox" id="tachar-post-${post.id}" >
-    <span class="text" id="post-${post.id}" >${post.post}</span>
+    <input type="checkbox" id="checkbox-post">
+    <span id="post-${post.id}" class="texto .tachado" >${post.post}</span>
     <button class="delete" id="delete-post-${post.id}"><img class="icon" src="./images/delete.png" alt="button-delete"></button>
     `
 
@@ -15,16 +15,16 @@ export const viewPost = (post) => {
         deletePost(post.id);
     });
 
-    const editCheckbox = listNotes.querySelector(`#tachar-post-${post.id}`);
+    const editCheckbox = listNotes.querySelector(`#checkbox-post`);
     editCheckbox.addEventListener('click', () => {
         if (editCheckbox.checked === true) {
-            const postTachado = (post.post).strike();
-            document.querySelector(`#post-${post.id}`).innerHTML = postTachado
-            editPost(post.id, post.post);
+            const postCrossedOut = (post.post).strike();
+            listNotes.querySelector(`#post-${post.id}`).innerHTML = postCrossedOut;
+            editPost(post.id, post.post, 'true');
         } else {
             const postPost = (post.post);
-            document.querySelector(`#post-${post.id}`).innerHTML = postPost;
-            editPost(post.id, post.post);
+            listNotes.querySelector(`#post-${post.id}`).innerHTML = postPost;
+            editPost(post.id, post.post, 'false');
         }
     })
     return listNotes;
@@ -37,7 +37,7 @@ export const eventLogin = () => {
         .then(() => {
             window.location.hash = '#/home';
         })
-        .catch(() => alert("Error de login"));
+        .catch(() => alert("Correo no válido"));
 }
 
 export const eventPost = () => {

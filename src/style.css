@@ -5,7 +5,7 @@
 
 body{
     /* background: #ffff72; */
-    background: #fff59d;
+    background: white;
 }
 
 /* -----BLOQUE LOGIN----- */
@@ -27,7 +27,12 @@ body{
 .logo{
     height: 600px;
     width: auto;
-    margin: 0px 0px 0px 10px;
+    margin: 0px 0px 0px 50px;
+}
+
+.text {
+    margin: 30px 150px;
+    text-align: center;
 }
 
 .input{
@@ -53,7 +58,7 @@ body{
     display: flex;
 	flex-direction: column;
     align-items: center;
-    margin: 10%;
+    margin: 5%;
 }
 
 .menu{
@@ -69,6 +74,15 @@ body{
 .log-up:hover {
     background: #d8dfc5;
     padding: 30px;
+}
+
+.container-post{
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    background: #fff59d;
 }
 
 .post{
@@ -92,7 +106,7 @@ body{
 li {
     list-style: none;
     padding: 20px;
-    background: white;
+    background: #fff59d;
     margin: 10px;
     border-radius: 15px;
 }
@@ -101,6 +115,14 @@ li {
     width: 20px;
 /* margin: 20px; */
 }
+
+/* .texto {
+    text-decoration: none;
+}
+
+.tachado {
+    text-decoration: line-through;
+} */
 
 /* .delete {
     margin: 0px 0px 0px 150px;

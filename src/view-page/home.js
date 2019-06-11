@@ -7,8 +7,10 @@ export const viewHome = (dataPost) => {
       <a class="log-up" href="#/login">Log Up</a>
     </nav>
     <form class="home-container">
-      <input class="post" type="text" id="notes" placeholder="¿Qué estas pensando?">
-      <button class="button" id="share-post">Share Note</button>
+      <section class="container-post" >
+        <input class="post" type="text" id="notes" placeholder="¿Qué estas pensando?">
+        <button class="button" id="share-post">Share Note</button>
+      </section>
       <ul class="list-notes" id="post-list" >
       </ul>
     </form>

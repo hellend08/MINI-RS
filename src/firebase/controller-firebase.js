@@ -17,10 +17,10 @@ export const postNotes = (notes) => {
 export const getPost = (funcionCallback) => {
   return firebase.firestore().collection("post").onSnapshot((querySnapshot) => {
     const data = [];
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach((post) => {
       data.push({
-        id: doc.id,
-        post: doc.data().post
+        id: post.id,
+        post: post.data().post
       });
     });
     funcionCallback(data);
@@ -28,15 +28,18 @@ export const getPost = (funcionCallback) => {
 }
 
 export const deletePost = (idPost) => {
-  return firebase.firestore().collection("post").doc(idPost).delete().then(function () {
-  }).catch((error) => {
+  return firebase.firestore().collection("post").doc(idPost).delete()
+  .then( () => {
+  })
+  .catch((error) => {
     console.error("Error removing document: ", error);
   });
 }
 
-export const editPost = (id, notes) => {
+export const editPost = (id, notes, state) => {
   return firebase.firestore().collection("post").doc(id).update({
-    post: notes
+    post: notes,
+    complete: state,
   })
     .then(function () {
       console.log("Texto editado!");
