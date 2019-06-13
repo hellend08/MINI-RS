@@ -6,7 +6,7 @@ export const viewPost = (post) => {
 
     listNotes.innerHTML = `
     <input type="checkbox" id="checkbox-post">
-    <span id="post-${post.id}" class="texto .tachado" >${post.post}</span>
+    <span id="post-${post.id}">${post.post}</span>
     <button class="delete" id="delete-post-${post.id}"><img class="icon" src="./images/delete.png" alt="button-delete"></button>
     `
 
