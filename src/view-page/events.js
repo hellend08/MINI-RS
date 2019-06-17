@@ -1,34 +1,4 @@
-import { logInFirebase, postNotes, deletePost, editPost } from '../firebase/controller-firebase.js';
-
-export const viewPost = (post) => {
-
-    const listNotes = document.createElement('li');
-
-    listNotes.innerHTML = `
-    <input type="checkbox" id="checkbox-post">
-    <span id="post-${post.id}">${post.post}</span>
-    <button class="delete" id="delete-post-${post.id}"><img class="icon" src="./images/delete.png" alt="button-delete"></button>
-    `
-
-    const deleteButton = listNotes.querySelector(`#delete-post-${post.id}`);
-    deleteButton.addEventListener('click', () => {
-        deletePost(post.id);
-    });
-
-    const editCheckbox = listNotes.querySelector(`#checkbox-post`);
-    editCheckbox.addEventListener('click', () => {
-        if (editCheckbox.checked === true) {
-            const postCrossedOut = (post.post).strike();
-            listNotes.querySelector(`#post-${post.id}`).innerHTML = postCrossedOut;
-            editPost(post.id, post.post, 'true');
-        } else {
-            const postPost = (post.post);
-            listNotes.querySelector(`#post-${post.id}`).innerHTML = postPost;
-            editPost(post.id, post.post, 'false');
-        }
-    })
-    return listNotes;
-}
+import { logInFirebase, registryFirebase, postNotes } from '../firebase/controller-firebase.js';
 
 export const eventLogin = () => {
     const emailValue = document.querySelector('#email').value;
@@ -37,7 +7,20 @@ export const eventLogin = () => {
         .then(() => {
             window.location.hash = '#/home';
         })
-        .catch(() => alert("Correo no válido"));
+        .catch(() => alert("¡Registrate para empezar!"));
+}
+
+export const eventRegistry = () => {
+    // const nickname = document.querySelector('#name').value;
+    const emailCreate = document.querySelector('#email').value;
+    const passwordCreate = document.querySelector('#contraseña').value;
+    registryFirebase(emailCreate, passwordCreate)
+        .then(() => {
+            window.location.hash = '#/login';
+            alert("¡Ahora inicia sesión!")
+        })
+        .catch(() => alert("¡Correo no válido!"));
+
 }
 
 export const eventPost = () => {

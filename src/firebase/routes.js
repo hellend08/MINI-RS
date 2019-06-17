@@ -7,6 +7,8 @@ export const chanceRoutes = (route) => {
     switch (route) {
         case '#/login': firtsPage.appendChild(componentsObject.singIn())
         break;
+        case '#/registry': firtsPage.appendChild(componentsObject.registry())
+        break;
         case '#/home' : {
             const viewfuncionCallback = (data) => {
                 firtsPage.innerHTML = '';

@@ -1,6 +1,8 @@
 export const logInFirebase = (emailValue, passwordValue) =>
   firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
 
+export const registryFirebase = (emailCreate, passwordCreate) =>
+firebase.auth().createUserWithEmailAndPassword(emailCreate, passwordCreate)
 
 export const postNotes = (notes) => {
   return firebase.firestore().collection("post").add({

@@ -1,4 +1,5 @@
-import { eventPost, viewPost } from './events.js'
+import { eventPost} from './events.js'
+import { viewPost } from './post.js'
 
 export const viewHome = (dataPost) => {
     const sectionHome = document.createElement('section');
