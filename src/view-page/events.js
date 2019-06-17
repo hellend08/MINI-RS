@@ -20,6 +20,8 @@ export const eventRegistry = () => {
             alert("¡Ahora inicia sesión!")
         })
         .catch(() => alert("¡Correo no válido!"));
+        document.querySelector('#email').value = '';
+        document.querySelector('#contraseña').value = '';
 
 }
 
