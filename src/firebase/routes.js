@@ -1,25 +1,32 @@
 import { componentsObject } from '../view-page/components.js';
-import { getPost } from './controller-firebase.js'
+import { getPost, singOff } from './controller-firebase.js'
 
 export const chanceRoutes = (route) => {
     const firtsPage = document.getElementById("log-in");
     firtsPage.innerHTML = '';
     switch (route) {
         case '#/login': firtsPage.appendChild(componentsObject.singIn())
-        break;
+            break;
+
         case '#/registry': firtsPage.appendChild(componentsObject.registry())
-        break;
-        case '#/home' : {
+            break;
+
+        case '#/home': {
             const viewfuncionCallback = (data) => {
                 firtsPage.innerHTML = '';
                 firtsPage.appendChild(componentsObject.home(data));
             }
             getPost(viewfuncionCallback);
         }
-        break;
+            break;
+
+        case '#/singOff':
+            singOff();
+            break;
+            
         default:
             firtsPage.appendChild(componentsObject.singIn());
-        break;
+            break;
     }
 };
 

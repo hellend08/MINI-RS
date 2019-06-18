@@ -7,7 +7,7 @@ export const viewHome = (dataPost) => {
     <nav class="menu">
       <a class="log-up" href="#/"> Usuario</a>
       <a class="log-up" href="#/home"> VeggieHappy </a>
-      <a class="log-up" href="#/login"><img class="icon" src="./images/logout.png" alt="log-out">Log Up</a>
+      <a class="log-up" href="#/singOff"><img class="icon" src="./images/logout.png" alt="log-out">Log Up</a>
     </nav>
     <div>
       <header>

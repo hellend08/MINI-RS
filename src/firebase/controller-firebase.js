@@ -2,7 +2,36 @@ export const logInFirebase = (emailValue, passwordValue) =>
   firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
 
 export const registryFirebase = (emailCreate, passwordCreate) =>
-firebase.auth().createUserWithEmailAndPassword(emailCreate, passwordCreate)
+  firebase.auth().createUserWithEmailAndPassword(emailCreate, passwordCreate)
+
+export const logInFacebook = () => {
+  let provider = new firebase.auth.FacebookAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then(() => {
+      window.location.hash = '#/home';
+    }).catch(() => {
+      console.log('Error');
+    });
+}
+
+export const logInGmail = () => {
+  let provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then(() => {
+      window.location.hash = '#/home';
+    }).catch(() => {
+      console.log('Error');
+    });
+}
+
+export const singOff = () => {
+  firebase.auth().signOut()
+  .then(() => {
+    window.location.hash = '#/login';
+  }).catch(() => {
+    console.log('Error');
+  });
+}
 
 export const postNotes = (notes) => {
   return firebase.firestore().collection("post").add({
@@ -31,11 +60,12 @@ export const getPost = (funcionCallback) => {
 
 export const deletePost = (idPost) => {
   return firebase.firestore().collection("post").doc(idPost).delete()
-  .then( () => {
-  })
-  .catch((error) => {
-    console.error("Error removing document: ", error);
-  });
+    .then(() => {
+      console.log('Eliminado');
+    })
+    .catch(() => {
+      console.log('Error al eliminar');
+    });
 }
 
 export const editPost = (id, notes, state) => {

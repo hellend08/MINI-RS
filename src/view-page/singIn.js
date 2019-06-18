@@ -1,4 +1,5 @@
 import { eventLogin } from './events.js'
+import { logInFacebook, logInGmail } from '../firebase/controller-firebase.js'
 
 export const singIn = () => {
   const sectionLogin = document.createElement('div');
@@ -16,8 +17,8 @@ export const singIn = () => {
       <a href="#/login" ><button class="button" id="login"> Log In </button></a>
       <article>
         <h4 class="text">Puedes ingresar también con...</h4>
-        <a id="Facebook"><img class="icon" src="./images/facebook.png" alt="facebook"></a>
-        <a" id="Gmail"><img class="icon" src="./images/gmail.png" alt="gmail"></a>
+        <a id="facebook"><img class="icon" src="./images/facebook.png" alt="facebook"></a>
+        <a" id="gmail"><img class="icon" src="./images/gmail.png" alt="gmail"></a>
       </article>
       <h4 class="text" >¿No tienes una cuenta?<a href="#/registry"> Regístrate.</a></h4>
       <div id="get-home"></div>
@@ -25,9 +26,15 @@ export const singIn = () => {
   </div>`
 
   sectionLogin.innerHTML = templateLogin;
-  const buttonLogin = sectionLogin.querySelector('#login');
 
+  const buttonLogin = sectionLogin.querySelector('#login');
   buttonLogin.addEventListener('click', eventLogin);
+
+  const buttonFacebook = sectionLogin.querySelector('#facebook');
+  buttonFacebook.addEventListener('click', logInFacebook);
+
+  const buttonGmail = sectionLogin.querySelector('#gmail');
+  buttonGmail.addEventListener('click', logInGmail );
 
   return sectionLogin;
 };
