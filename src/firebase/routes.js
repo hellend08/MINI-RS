@@ -1,39 +1,40 @@
 import { componentsObject } from '../view-page/components.js';
-import { getPost, singOff } from './controller-firebase.js'
+import { getPost } from './controller-firebase.js';
+import { eventSingOff } from '../view-page/events.js';
 
 export const chanceRoutes = (route) => {
-    const firtsPage = document.getElementById("log-in");
-    firtsPage.innerHTML = '';
-    switch (route) {
-        case '#/login': firtsPage.appendChild(componentsObject.singIn())
-            break;
+  const firtsPage = document.getElementById("log-in");
+  firtsPage.innerHTML = '';
+  switch (route) {
+  case '#/login': firtsPage.appendChild(componentsObject.singIn());
+    break;
 
-        case '#/registry': firtsPage.appendChild(componentsObject.registry())
-            break;
+  case '#/registry': firtsPage.appendChild(componentsObject.registry());
+    break;
 
-        case '#/home': {
-            const viewfuncionCallback = (data) => {
-                firtsPage.innerHTML = '';
-                firtsPage.appendChild(componentsObject.home(data));
-            }
-            getPost(viewfuncionCallback);
-        }
-            break;
+  case '#/home': {
+    const viewfuncionCallback = (data) => {
+      firtsPage.innerHTML = '';
+      firtsPage.appendChild(componentsObject.home(data));
+    };
+    getPost(viewfuncionCallback);
+  }
+    break;
 
-        case '#/singOff':
-            singOff();
-            break;
-            
-        default:
-            firtsPage.appendChild(componentsObject.singIn());
-            break;
-    }
+  case '#/singOff':
+    eventSingOff();
+    break;
+
+  default:
+    firtsPage.appendChild(componentsObject.singIn());
+    break;
+  }
 };
 
 export const sendRoute = () => {
-    // chanceRoutes(window.location.hash);
-    window.addEventListener('load', () => chanceRoutes(window.location.hash))
-    if (("onhashchange" in window)) window.onhashchange = () => chanceRoutes(window.location.hash)
+  // chanceRoutes(window.location.hash);
+  window.addEventListener('load', () => chanceRoutes(window.location.hash));
+  if (("onhashchange" in window)) window.onhashchange = () => chanceRoutes(window.location.hash);
 };
 
-    // window.addEventListener('load', init);
+// window.addEventListener('load', init);
