@@ -26,13 +26,14 @@ export const postNotes = (notes) => {
   });
 };
 
-export const getPost = (funcionCallback) => {
+export const getPost = (funcionCallback, state) => {
   return firebase.firestore().collection("post").onSnapshot((querySnapshot) => {
     const data = [];
     querySnapshot.forEach((post) => {
       data.push({
         id: post.id,
-        post: post.data().post
+        post: post.data().post,
+        complete: state === true
       });
     });
     funcionCallback(data);
@@ -40,24 +41,12 @@ export const getPost = (funcionCallback) => {
 };
 
 export const deletePost = (idPost) => {
-  return firebase.firestore().collection("post").doc(idPost).delete()
-    .then(() => {
-      // console.log('Eliminado');
-    })
-    .catch(() => {
-      // console.log('Error al eliminar');
-    });
+  return firebase.firestore().collection("post").doc(idPost).delete();
 };
 
 export const editPost = (id, notes, state) => {
   return firebase.firestore().collection("post").doc(id).update({
     post: notes,
-    complete: state,
-  })
-    .then(() => {
-      // console.log("Texto editado!");
-    })
-    .catch(() => {
-      // console.error("Error writing document: ", error);
-    });
+    complete: state
+  });
 };

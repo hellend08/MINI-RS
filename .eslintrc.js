@@ -45,6 +45,7 @@ module.exports = {
         "indent": [1, 2],
         "no-array-constructor": 1,
         "no-const-assign": "error",
+        "no-console": "off",
         "no-var": "error"  
     }
 };

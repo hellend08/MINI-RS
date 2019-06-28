@@ -29,6 +29,7 @@ export const viewHome = (dataPost) => {
   const postList = sectionHome.querySelector('#post-list');
   // const userName = user;
 
+  
   dataPost.forEach(allPost => {
     postList.appendChild(viewPost(allPost));
   });

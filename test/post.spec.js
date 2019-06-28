@@ -7,7 +7,7 @@ const fixtureData = {
       __doc__: {
         abc123: {
           post: 'nueva publicación',
-          complete: false
+          complete: true
         },
       }
     }
@@ -36,16 +36,17 @@ describe('postNotes', () => {
 });
 
 describe('editPost', () => {
-  it('Debería tachar una nota', (done) => {
-    return editPost('abc123', 'state').then(() => {
+  it('Debería tachar una nota y cambiar a true', (done) => {
+    return editPost('abc123', 'comer verduras en el almuerzo', true).then(() => {
       const callback = (post) => {
-        const result = post.id.find((element) => {
-          return element.id === 'comer verduras en el almuerzo'.strike() === 'true';
+        console.log(post);
+        const result = post.find((element) => {
+          return element.complete === false ;
         });
-        expect(result).toBe('true');
+        expect(result.complete).toBe(false);
         done();
       };
-      editPost(callback);
+      getPost(callback);
     });
   });
 });
