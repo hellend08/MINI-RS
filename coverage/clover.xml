@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561761406969" clover="3.2.0">
-  <project timestamp="1561761406969" name="All files">
+<coverage generated="1562097047992" clover="3.2.0">
+  <project timestamp="1562097047993" name="All files">
     <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11" elements="35" coveredelements="35" complexity="0" loc="24" ncloc="24" packages="1" files="1" classes="1"/>
     <file name="controller-firebase.js" path="C:\Users\Invitado\Desktop\mini-RS\MINI-RS\src\firebase\controller-firebase.js">
       <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11"/>

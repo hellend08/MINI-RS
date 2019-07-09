@@ -20,33 +20,38 @@ export const singOff = () => {
   return firebase.auth().signOut();
 };
 
+export const collectionUser = (objUser) => {
+  return firebase.firestore().collection("post").doc(objUser.uid).set(objUser);
+};
+
 export const postNotes = (notes) => {
   return firebase.firestore().collection("post").add({
     post: notes
   });
 };
 
-export const getPost = (funcionCallback, state) => {
+export const getPost = (funcionCallback) => {
   return firebase.firestore().collection("post").onSnapshot((querySnapshot) => {
     const data = [];
     querySnapshot.forEach((post) => {
       data.push({
         id: post.id,
         post: post.data().post,
-        complete: state === true
+        privacy: post.data().privacy,
+        likes: post.data().likes
       });
     });
     funcionCallback(data);
   });
 };
 
-export const deletePost = (idPost) => {
-  return firebase.firestore().collection("post").doc(idPost).delete();
-};
-
-export const editPost = (id, notes, state) => {
+export const editPost = (id, notes, privacySelect) => {
   return firebase.firestore().collection("post").doc(id).update({
     post: notes,
-    complete: state
+    privacy: privacySelect
   });
+};
+
+export const deletePost = (idPost) => {
+  return firebase.firestore().collection("post").doc(idPost).delete();
 };

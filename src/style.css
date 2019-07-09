@@ -6,6 +6,8 @@
 body{
     /* background: #ffff72; */
     background: white;
+    /* display: flex; */
+    min-height: 100vh;
 }
 
 /* -----BLOQUE LOGIN----- */
@@ -29,17 +31,25 @@ body{
     width: auto;
     margin: 0px 0px 0px 50px;
 }
+.fb-gm{
+    width: 50px;
+    margin: 0px 5px;
+}
 
 .text {
     margin: 30px 150px;
     text-align: center;
 }
 
+.block-profile{
+    display: inline;
+}
+
 .input{
     display: block;
     background: #d8dfc5;
     margin: 12px auto;
-    height: 15px;
+    height: 38px;
     padding: 10px 35px;
     border-radius: 15px;
 }
@@ -48,22 +58,44 @@ body{
     /* background: #50C45F;
     color: #243010; */
     display: inline-block;
-    padding: 9px 50px;
+    padding: 5px 50px;
     text-align: center;
     border-radius: 15px;
     /* margin-left: auto; */
 }
 
 .home-container{
-    display: flex;
-	flex-direction: column;
+    display: inline;
+	/* flex-direction: column; */
     align-items: center;
     margin: 5%;
+}
+
+.share-post{
+    position: relative;
+    left: 10%;
+    width: 35%;
+    border:  solid 1px rgb(82, 80, 80);
+    max-width: 500px;
+    padding: 30px 20px 30px 20px;
+    margin: auto;
+}
+
+.label-camera{
+    margin: 0rem 1rem 0rem 2rem;
 }
 
 .menu{
     padding: 30px;
     background: #cbc26d;
+}
+
+.view-none{
+    display:none;
+}
+
+.button-like{
+    border: none;
 }
 
 .log-up{
@@ -77,7 +109,7 @@ body{
 
 .log-up:hover {
     color: #d8dfc5;
-    padding: 30px;
+    /* padding: 30px; */
 }
 
 .avatar {
@@ -96,29 +128,61 @@ body{
 }
 
 .post{
-    width: 50vh;
-    height: 20vh;
-    padding: 10px;
+    display: inline-block;
+    width: 90%;
+    padding: 20px 10px;
     text-align: center;
     border-radius: 10px;
-    margin: 20px;
+    margin: 18px;
+    font-size: 15px;
+    word-break: break-all;
+    resize: none;
 }
 
 .list-notes{
     display: flex;
 	flex-direction: column;
-    /* align-items: center; */
-    width: 50%;
+    align-items: center;
+    /* width: 50%; */
     margin: 5%;
     padding: 30px 0px;
 }
-
-li {
+li{
     list-style: none;
+}
+
+.lis {
+    /* list-style: none;
     padding: 20px;
     background: #fff59d;
     margin: 10px;
-    border-radius: 15px;
+    border-radius: 15px; */
+    list-style: none;
+    position: relative;
+    left: 11%;
+    width: 40%;
+    border:  solid 1px rgb(82, 80, 80);
+    max-width: 465px;
+    min-height: 250px;
+    padding: 15px 0px 0px;
+    margin: 20px;
+}
+.posteo{
+    display: block;
+    margin: 15px;
+    margin-bottom: 50px;
+}
+
+.user-name {
+    border-bottom: solid 1px  rgb(82, 80, 80);
+    text-align: justify;
+    padding: 0px 15px;
+    padding-bottom: 15px;
+}
+
+.forma-menu {
+    border-top: solid 1px rgb(82, 80, 80);
+    padding: 15px;
 }
 
 .icon {
@@ -149,6 +213,12 @@ li {
         min-height: 30vh;
         justify-content: space-evenly;
     }
+    
+    /* .post{
+        flex-direction: column;
+        min-height: 30vh;
+        justify-content: space-evenly;
+    } */
 
     /* .home-container{
         

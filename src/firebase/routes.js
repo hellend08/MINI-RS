@@ -25,6 +25,9 @@ export const chanceRoutes = (route) => {
     eventSingOff();
     break;
 
+  case '#/profile': firtsPage.appendChild(componentsObject.profile());
+    break;
+
   default:
     firtsPage.appendChild(componentsObject.singIn());
     break;
