@@ -5,10 +5,10 @@ import { eventSingOff } from '../view-page/events.js';
 export const chanceRoutes = (route) => {
   const firtsPage = document.getElementById("log-in");
   firtsPage.innerHTML = '';
-  switch (route) {
+  switch (route) {  
   case '#/login': firtsPage.appendChild(componentsObject.singIn());
     break;
-
+    
   case '#/registry': firtsPage.appendChild(componentsObject.registry());
     break;
 

@@ -8,6 +8,9 @@ body{
     background: white;
     /* display: flex; */
     min-height: 100vh;
+    /* background: url(./images/vegan-footy.png) no-repeat center; */
+
+
 }
 
 /* -----BLOQUE LOGIN----- */
@@ -16,6 +19,7 @@ body{
     display: flex;
 	flex-direction: column;
     align-items: center;
+
 }
 
 .section-login{
@@ -52,6 +56,7 @@ body{
     height: 38px;
     padding: 10px 35px;
     border-radius: 15px;
+    box-sizing: border-box;
 }
 
 .button{
