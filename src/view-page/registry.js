@@ -8,7 +8,7 @@ export const viewregistry = () => {
         <img class="logo" src="./images/govegan.png" alt="vegan-logo">
       </header>
       <section class="section-login" id="pag-one">
-        <h2 class="text">VeggieHappy 	&#127806</h2>
+        <h2 class="text-tittle">VeggieHappy <img class="loguito" src="./images/salad.png"></h2>
         <input class="input" id="name" type="text" placeholder="Nickname">
         <input class="input" id="email" type="email" placeholder="   &#9993     Email">
         <input class="input" id="contraseña" type="password" placeholder="   &#128274     Password">

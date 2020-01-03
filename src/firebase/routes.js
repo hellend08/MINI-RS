@@ -39,5 +39,3 @@ export const sendRoute = () => {
   window.addEventListener('load', () => chanceRoutes(window.location.hash));
   if (("onhashchange" in window)) window.onhashchange = () => chanceRoutes(window.location.hash);
 };
-
-// window.addEventListener('load', init);

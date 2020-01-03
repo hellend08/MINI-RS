@@ -31,7 +31,6 @@ export const viewHome = (dataPost) => {
         <ul class="list-notes" id="post-list" >
         </ul>
       </div>
-
     </form>
     `;
 

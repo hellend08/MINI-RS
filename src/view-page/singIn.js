@@ -8,7 +8,7 @@ export const singIn = () => {
         <img class="logo" src="./images/govegan.png" alt="vegan-logo">
       </header>
       <section class="section-login" id="">
-        <h2 class="text">VeggieHappy 	&#127806</h2>
+        <h2 class="text-tittle">VeggieHappy <img class="loguito" src="./images/salad.png"> </h2>
     <!--  <h3 class="">¡Bienvenido a VeggieHappy! </h3> -->
         <p class="text">La única red donde tus novedades, ideas e informacion del veganismo son utiles para los demás.</p>
         <input class="input" id="email" type="email" placeholder="   &#9993    Email">
@@ -24,7 +24,7 @@ export const singIn = () => {
       </section>
     </div>
     <footer>
-      <ul class="modal-footer">
+      <ul class="footer-login">
 			  <li>&copy; Titled By</li>
 			  <li>Design: Helen Vásquez</li>
 		  </ul>

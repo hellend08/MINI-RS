@@ -9,7 +9,7 @@ body{
     /* display: flex; */
     min-height: 100vh;
     /* background: url(./images/vegan-footy.png) no-repeat center; */
-
+    
 
 }
 
@@ -19,13 +19,16 @@ body{
     display: flex;
 	flex-direction: column;
     align-items: center;
-
+    background: url('images/vegan-footy.png');
+    background-position: center;
 }
 
 .section-login{
+    height: 520px;
+    width: 450px;
     text-align: center;
-    padding: 15px 30px;
-    /* background-color: #689f38; */
+    /* padding: 15px 30px; */
+    background-color: #00000070;
     border-radius: 15px;
     /* min-height: 70vh; */
 }
@@ -34,6 +37,8 @@ body{
     height: 600px;
     width: auto;
     margin: 0px 0px 0px 50px;
+    visibility: hidden;
+    
 }
 .fb-gm{
     width: 50px;
@@ -41,8 +46,15 @@ body{
 }
 
 .text {
-    margin: 30px 150px;
+    margin: 30px 50px;
     text-align: center;
+    color: #FFF4EC;
+}
+
+.text-tittle {
+    margin: 30px 50px;
+    text-align: center;
+    color: #F5A127;
 }
 
 .block-profile{
@@ -51,9 +63,9 @@ body{
 
 .input{
     display: block;
-    background: #d8dfc5;
+    background: #FFF4EC;
     margin: 12px auto;
-    height: 38px;
+    height: 20px;
     padding: 10px 35px;
     border-radius: 15px;
     box-sizing: border-box;
@@ -63,9 +75,10 @@ body{
     /* background: #50C45F;
     color: #243010; */
     display: inline-block;
-    padding: 5px 50px;
+    padding: 2px 40px;
     text-align: center;
     border-radius: 15px;
+    background-color: #F5A127;
     /* margin-left: auto; */
 }
 
@@ -190,11 +203,23 @@ li{
     padding: 15px;
 }
 
+.loguito{
+    width: 45px;
+}
+
 .icon {
     width: 20px;
     margin: 0px 5px;
 }
 
+.footer-login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+padding: 1rem;
+background: #FFF4EC;
+color: #443527;
+}
 /* .texto {
     text-decoration: none;
 }
